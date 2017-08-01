@@ -1,8 +1,14 @@
-html, body {
+html {
 	margin: 0;
 	padding: 0;
+	background: #91197D;
+}
+
+body {
 	height: 100%;
-	width: 100%;
+	width: 60%;
+	margin: 0 auto;
+	font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
 }
 
 #map {
@@ -10,18 +16,16 @@ html, body {
 	width: 100%;
 }
 
-#legend {
-	font-family: Arial, sans-serif;
+#container {
 	background: #fff;
-	padding: 10px;
-	margin: 10px;
-	border: 3px solid #000;
+	padding: 30px;
+	margin: 15px 0;
 }
 
-#legend h3 {
-	margin-top: 0;
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Fjalla One', sans-serif;
 }
 
-#legend img {
-	vertical-align: middle;
+h1 {
+	color: #fff;
 }

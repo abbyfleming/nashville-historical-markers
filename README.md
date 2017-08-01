@@ -1,6 +1,6 @@
 # Nashville Historical Markers
 
-![Preview of Map](https://github.com/abbyfleming/nashville-historical-markers/master/screenshot.png)
+![Preview of Map](https://github.com/abbyfleming/nashville-historical-markers/blob/master/screenshot.png)
 
 Ever wonder what the historical markers around Nashville say? Nashville has [open data](https://data.nashville.gov/History/Historic-Markers/vk65-u7my/data) with all of the listings under the Metro Historical's Commission's control. Using their data, markers have been added into Google Maps. When you click on the marker, the title will appear and more information is displayed below the map.
 

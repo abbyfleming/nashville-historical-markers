@@ -8,6 +8,7 @@ function getData() {
 		type: 'GET', 
 		dataType: 'json'
 		}).done(function(data) {
+			console.log("data-->", data); 
 			buildData(data);
 		}).fail(function(error) {
 			console.log("error-->", error); 
@@ -29,9 +30,26 @@ function buildData(data) {
 		marker.addListener('click', function(){
 			infowindow.setContent(item.title)
 			infowindow.open(map, marker);
+			displayInfo(item);
 		});
 	});
 }
+
+
+function displayInfo(data){
+	description = "";
+
+	if (data.marker_text == undefined) {
+		description = "No description available.";
+	} else {
+		description = data.marker_text;
+	}
+
+	$('#marker_text').html(`
+		<h2> ${data.title} </h2>
+		<p> ${description} </p>`);
+}
+
 
 function initMap() {
 

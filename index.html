@@ -3,14 +3,19 @@
 	<head>
 	<title>Google Maps</title>
 	<link rel="stylesheet" type="text/css" href="style/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 	
 	<body>
-		<h3>Nashville Historical Markers</h3>
+		<h1>Nashville Historical Markers</h1>
 		
-		<div id="map"></div>
-	
+		<div id="container">
+			<div id="map"></div>
+			<div id="title"></div>
+			<div id="marker_text"></div>
+		</div>
+
 
 	<!-- call the api before calling map.js -->
 	<script async defer

@@ -1,49 +1,52 @@
 
-
-// var infowindow = new google.maps.InfoWindow();	
+var infowindow;
 
 function getData() {
-	return $.ajax({
+	
+	$.ajax({
 		url: 'https://data.nashville.gov/resource/m4hn-ihe4.json', 
 		type: 'GET', 
-		dataType: 'JSON'
+		dataType: 'json'
 		}).done(function(data) {
-			buildData(data); // buid out markers
+			buildData(data);
 		}).fail(function(error) {
 			console.log("error-->", error); 
 		})
 }
 
-
 function buildData(data) {
-	// for each item, create a new marker
-	data.forEach(function(item) {
-		let latitude = item.latitude;
-		let longitude = item.longitude;
 
+	data.forEach(function(item) {
+		
+		// create the marker
 		let marker = new google.maps.Marker({
-			position: new google.maps.LatLng(latitude, longitude),
+			position: new google.maps.LatLng(item.latitude, item.longitude),
 			title: item.title,
 			map: map
-		})
+		});
 
+		// add event listener
 		marker.addListener('click', function(){
-			// open the window
-			console.log("item.title.toLowerCase()-->", item.title.toLowerCase()); 
-	 		// infowindow.setContent(item.title);
-	 		// infowindow.open(map, marker);
-	 	});
+			infowindow.setContent(item.title)
+			infowindow.open(map, marker);
+		});
 	});
 }
 
-
 function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 10, // the lower the number, the more zoomed out
-    center: new google.maps.LatLng(36.174465, -86.767960), // center of map (Nashville)
-    mapTypeId: 'roadmap' // satellite, hybrid, terrain
-  });
 
-  getData();
+	// initiate the map
+	map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 11, // default zoom
+		center: new google.maps.LatLng(36.174465, -86.767960), // center of map (nashville)
+		mapTypeId: 'roadmap' // satellite, hybrid, terrain
+	});
+
+	// set global variable
+	infowindow = new google.maps.InfoWindow({
+		content: 'loading'
+	});
+
+	// fetch the data
+	getData();
 }
-
